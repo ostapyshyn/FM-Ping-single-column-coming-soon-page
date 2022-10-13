@@ -23,5 +23,114 @@ main {
       }
       margin-bottom: 40px;
     }
+
+    h2 {
+      font-weight: 300;
+      font-size: 48px;
+      line-height: 60px;
+      color: var(--gray);
+      span {
+        font-weight: 700;
+        color: var(--very-dark-blue);
+      }
+      margin-bottom: 16px;
+    }
+    p {
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 24px;
+      color: var(--very-dark-blue);
+      margin-bottom: 40px;
+    }
+
+    .copy {
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 15px;
+      color: var(--gray);
+    }
+
+    .email {
+      display: flex;
+      gap: 16px;
+      width: 100%;
+      margin-bottom: 94px;
+    }
+
+    input {
+      width: 100%;
+      padding-top: 17px;
+      padding-left: 30px;
+      padding-bottom: 17px;
+      max-width: 421px;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 20px;
+      color: var(--very-dark-blue);
+      border: 1px solid var(--light-red);
+      box-shadow: 0px 0px 7px 3px rgba(0, 0, 0, 0.0001);
+      border-radius: 28px;
+    }
+
+    button {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 19px;
+      color: #ffffff;
+
+      background: var(--blue);
+      box-shadow: 0px 5px 10px 2px rgba(76, 123, 243, 0.230414);
+      border-radius: 28px;
+      width: 200px;
+      height: 56px;
+      border: none;
+
+      cursor: pointer;
+      &:active {
+        transform: scale(0.98);
+        opacity: 0.8;
+      }
+    }
+
+    ul {
+      width: 120px;
+      display: flex;
+      justify-content: space-between;
+
+      margin-bottom: 40px;
+      // @include mq(900px) {
+      //   margin: 0 auto;
+      //   margin-bottom: 40px;
+      // }
+
+      li {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 0.918357px solid rgba(76, 123, 243, 0.15);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        &:active {
+          transform: scale(0.98);
+        }
+
+        &:hover {
+          border-color: var(--soft-magenta);
+          .social {
+            color: var(--soft-magenta);
+          }
+        }
+
+        .social {
+          color: var(--blue);
+          
+          height: 14.73px;
+        }
+      }
+    }
   }
 }
