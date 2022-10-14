@@ -43,18 +43,24 @@ h6 {
   overflow-wrap: break-word;
 }
 
-:root {
---blue: hsl(223, 87%, 63%);
---pale-blue: hsl(223, 100%, 88%);
---light-red: hsl(354, 100%, 66%);
---gray: hsl(0, 0%, 59%);
---very-dark-blue: hsl(209, 33%, 12%);
+@mixin mq($size) {
+  @media screen and (max-width: $size) {
+    @content;
+  }
+}
 
+:root {
+  --blue: hsl(223, 87%, 63%);
+  --pale-blue: hsl(223, 100%, 88%);
+  --light-red: hsl(354, 100%, 66%);
+  --gray: hsl(0, 0%, 59%);
+  --very-dark-blue: hsl(209, 33%, 12%);
 }
 
 body {
   margin: 0;
   min-height: 100vh;
+  padding-inline: 28px;
   font-family: 'Libre Franklin', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;

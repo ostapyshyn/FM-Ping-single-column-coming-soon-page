@@ -43,9 +43,11 @@ function Ping() {
             type="email"
             value={email}
             onChange={handleOnChange}
-            placeholder="example@email/com"
+            placeholder="Your email address…"
           />
+
           <button onClick={emailValidation}>Notify Me</button>
+          <p className={styles.error}>{message}</p>
         </div>
 
         <img src={ping} alt="main" />
