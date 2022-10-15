@@ -36,7 +36,15 @@ function Ping() {
           We are launching <span>soon!</span>
         </h2>
         <p>Subscribe and get notified</p>
-        <div className={styles.email}>
+        <div
+          className={styles.email}
+          style={
+            message
+              ? {
+                  marginBottom: '40px',
+                }
+              : undefined
+          }>
           <input
             id="email"
             autoComplete="off"
@@ -44,8 +52,15 @@ function Ping() {
             value={email}
             onChange={handleOnChange}
             placeholder="Your email address…"
+            style={
+              message
+                ? {
+                    border: '1px solid var(--light-red)',
+                    marginBottom: '42px',
+                  }
+                : undefined
+            }
           />
-
           <button onClick={emailValidation}>Notify Me</button>
           <p className={styles.error}>{message}</p>
         </div>
