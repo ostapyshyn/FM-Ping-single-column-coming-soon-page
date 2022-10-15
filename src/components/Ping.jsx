@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ping from '../assets/images/illustration-dashboard.png';
 import styles from '../assets/ping.module.scss';
 import { FaFacebookF } from 'react-icons/fa';
@@ -9,6 +9,18 @@ import { FaInstagram } from 'react-icons/fa';
 function Ping() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+
+  const [windowSize, setWindowSize] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleOnChange = (e) => {
     setEmail(e.target.value);
@@ -39,7 +51,7 @@ function Ping() {
         <div
           className={styles.email}
           style={
-            message
+            message && windowSize <= 650
               ? {
                   marginBottom: '40px',
                 }
@@ -53,7 +65,7 @@ function Ping() {
             onChange={handleOnChange}
             placeholder="Your email address…"
             style={
-              message
+              message && windowSize <= 650
                 ? {
                     border: '1px solid var(--light-red)',
                     marginBottom: '42px',
@@ -62,19 +74,25 @@ function Ping() {
             }
           />
           <button onClick={emailValidation}>Notify Me</button>
-          <p className={styles.error}>{message}</p>
+          <span className={styles.error}>{message}</span>
         </div>
 
         <img src={ping} alt="main" />
         <ul>
           <li>
-            <FaFacebookF className={styles.social} />
+            <a href="https://facebook.com/">
+              <FaFacebookF className={styles.social} />
+            </a>
           </li>
           <li>
-            <FaTwitter className={styles.social} />
+            <a href="https://twitter.com/">
+              <FaTwitter className={styles.social} />
+            </a>
           </li>
           <li>
-            <FaInstagram className={styles.social} />
+            <a href="https://instagram.com/">
+              <FaInstagram className={styles.social} />
+            </a>
           </li>
         </ul>
         <p className={styles.copy}>© Copyright Ping. All rights reserved.</p>
